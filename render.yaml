@@ -1,0 +1,28 @@
+services:
+  - type: web
+    name: financial-dashboard-backend
+    env: node
+    buildCommand: cd server && npm install && npm run build
+    startCommand: cd server && npm start
+    envVars:
+      - key: PORT
+        value: 8080
+      - key: MONGO_URI
+        sync: false
+      - key: JWT_SECRET
+        sync: false
+      - key: TOGETHER_API_KEY
+        sync: false
+    autoDeploy: true
+    plan: free
+    rootDir: server
+
+  - type: web
+    name: financial-dashboard-frontend
+    env: static
+    buildCommand: cd client && npm install && npm run build
+    staticPublishPath: client/build
+    envVars: []
+    autoDeploy: true
+    plan: free
+    rootDir: client
