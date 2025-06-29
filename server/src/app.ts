@@ -5,7 +5,16 @@ import dotenv from "dotenv";
 dotenv.config();
 
 const app = express();
-app.use(cors());
+
+// Allow only your frontend domain
+app.use(cors({
+  origin: [
+    "https://financial-analysis-dashboard-01.onrender.com",
+    "http://localhost:3000",
+  ],
+  credentials: true,
+}));
+
 app.use(express.json());
 
 import authRoutes from "./routes/auth.routes";
