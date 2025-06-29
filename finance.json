@@ -1,0 +1,101 @@
+{
+  "info": {
+    "name": "Financial Dashboard API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": "Postman collection for Financial Dashboard backend API. Example usage for user registration, login, transaction management, and AI-powered financial analysis. Created by Jayesh Patil, 2025."
+  },
+  "item": [
+    {
+      "name": "Register",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"email\": \"alice.random@example.com\",\n  \"password\": \"Test@1234\"\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/auth/register",
+          "host": ["{{base_url}}"],
+          "path": ["auth", "register"]
+        }
+      }
+    },
+    {
+      "name": "Login",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"email\": \"alice.random@example.com\",\n  \"password\": \"Test@1234\"\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/auth/login",
+          "host": ["{{base_url}}"],
+          "path": ["auth", "login"]
+        }
+      }
+    },
+    {
+      "name": "Get User Transactions",
+      "request": {
+        "method": "GET",
+        "header": [
+          { "key": "Authorization", "value": "Bearer {{token}}" }
+        ],
+        "url": {
+          "raw": "{{base_url}}/transactions/user",
+          "host": ["{{base_url}}"],
+          "path": ["transactions", "user"]
+        }
+      }
+    },
+    {
+      "name": "Upload Transactions",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Authorization", "value": "Bearer {{token}}" },
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"transactions\": [\n    {\n      \"date\": \"2024-01-01\",\n      \"amount\": 1000,\n      \"category\": \"Salary\",\n      \"type\": \"income\"\n    },\n    {\n      \"date\": \"2024-01-05\",\n      \"amount\": 250,\n      \"category\": \"Groceries\",\n      \"type\": \"expense\"\n    },\n    {\n      \"date\": \"2024-01-10\",\n      \"amount\": 120,\n      \"category\": \"Transport\",\n      \"type\": \"expense\"\n    }\n  ]\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/transactions/upload",
+          "host": ["{{base_url}}"],
+          "path": ["transactions", "upload"]
+        }
+      }
+    },
+    {
+      "name": "AI Analysis",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Authorization", "value": "Bearer {{token}}" },
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"question\": \"Show me my biggest spending categories and any unusual patterns.\",\n  \"transactions\": [\n    {\n      \"date\": \"2024-01-01\",\n      \"amount\": 1000,\n      \"category\": \"Salary\",\n      \"type\": \"income\"\n    },\n    {\n      \"date\": \"2024-01-05\",\n      \"amount\": 250,\n      \"category\": \"Groceries\",\n      \"type\": \"expense\"\n    },\n    {\n      \"date\": \"2024-01-10\",\n      \"amount\": 120,\n      \"category\": \"Transport\",\n      \"type\": \"expense\"\n    },\n    {\n      \"date\": \"2024-01-15\",\n      \"amount\": 500,\n      \"category\": \"Freelance\",\n      \"type\": \"income\"\n    },\n    {\n      \"date\": \"2024-01-20\",\n      \"amount\": 300,\n      \"category\": \"Dining\",\n      \"type\": \"expense\"\n    }\n  ]\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/ai/analyze",
+          "host": ["{{base_url}}"],
+          "path": ["ai", "analyze"]
+        }
+      }
+    }
+  ],
+  "variable": [
+    { "key": "base_url", "value": "http://localhost:8080/api" },
+    { "key": "token", "value": "" }
+  ]
+}
