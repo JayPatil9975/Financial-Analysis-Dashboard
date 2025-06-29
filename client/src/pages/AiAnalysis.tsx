@@ -80,14 +80,6 @@ export default function AiAnalysis() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 text-white relative overflow-hidden">
-      {/* Back to Dashboard Button */}
-      <button
-        onClick={() => navigate("/dashboard")}
-        className="bg-gray-700 hover:bg-gray-600 text-white px-6 py-3 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 font-semibold border border-gray-600"
-      >
-        🏠 Back to Dashboard
-      </button>
-
       {/* Animated background elements */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute -top-40 -right-40 w-80 h-80 bg-purple-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse"></div>
@@ -96,6 +88,17 @@ export default function AiAnalysis() {
       </div>
 
       <div className="relative z-10 flex flex-col items-center justify-center min-h-screen p-4">
+        {/* Back to Dashboard Button - move here for visibility */}
+        <div className="w-full max-w-2xl mb-4 flex">
+          <button
+            onClick={() => navigate("/dashboard")}
+            className="flex items-center gap-2 bg-gray-700 hover:bg-gray-600 text-white px-4 py-2 rounded-lg shadow transition-all font-semibold border border-gray-600"
+          >
+            <ArrowLeft className="w-4 h-4" />
+            Back to Dashboard
+          </button>
+        </div>
+
         {/* Header */}
         <div className="mb-8 text-center">
           <div className="flex items-center justify-center mb-4">
