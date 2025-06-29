@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import API from "../services/api";
 import {
   LineChart,
@@ -33,6 +34,8 @@ export default function Analytics() {
   const [filterStatus, setFilterStatus] = useState<string>("all");
   const [dateFrom, setDateFrom] = useState<string>("");
   const [dateTo, setDateTo] = useState<string>("");
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetchTransactions();
@@ -152,8 +155,8 @@ export default function Analytics() {
             Financial Analytics
           </h2>
           <button
-            onClick={() => (window.location.href = "/dashboard")}
-            className="bg-gradient-to-r from-gray-500 to-gray-600 text-white px-6 py-3 rounded-xl hover:from-gray-600 hover:to-gray-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 font-semibold"
+            onClick={() => navigate("/dashboard")}
+            className="bg-gray-700 hover:bg-gray-600 text-white px-6 py-3 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 font-semibold border border-gray-600"
           >
             🏠 Back to Dashboard
           </button>

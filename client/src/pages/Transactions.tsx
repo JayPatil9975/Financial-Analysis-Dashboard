@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import API from "../services/api";
 import { saveAs } from "file-saver";
 
@@ -11,6 +12,7 @@ interface Transaction {
 }
 
 export default function Transactions() {
+  const navigate = useNavigate();
   const [transactions, setTransactions] = useState<Transaction[]>([]);
   const [filtered, setFiltered] = useState<Transaction[]>([]);
   const [search, setSearch] = useState("");
@@ -266,7 +268,7 @@ export default function Transactions() {
           </p>
           
           <button
-            onClick={() => window.location.href = "/dashboard"}
+            onClick={() => navigate("/dashboard")}
             className="bg-gray-700 hover:bg-gray-600 text-white px-6 py-3 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 font-semibold border border-gray-600"
           >
             🏠 Back to Dashboard

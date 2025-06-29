@@ -83,10 +83,9 @@ export default function AiAnalysis() {
       {/* Back to Dashboard Button */}
       <button
         onClick={() => navigate("/dashboard")}
-        className="absolute top-6 left-6 flex items-center gap-2 bg-white/10 hover:bg-white/20 text-white px-4 py-2 rounded-lg shadow transition-all z-20"
+        className="bg-gray-700 hover:bg-gray-600 text-white px-6 py-3 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 font-semibold border border-gray-600"
       >
-        <ArrowLeft className="w-4 h-4" />
-        <span className="font-medium">Back to Dashboard</span>
+        🏠 Back to Dashboard
       </button>
 
       {/* Animated background elements */}
